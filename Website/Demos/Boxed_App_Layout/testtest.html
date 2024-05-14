@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible"
+              content="IE=edge">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Luma</title>
+
+        <!-- Prevent the demo from appearing in search engines -->
+        <meta name="robots"
+              content="noindex">
+
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CRoboto:400,500%7CExo+2:600&display=swap"
+              rel="stylesheet">
+
+        <!-- Preloader -->
+        <link type="text/css"
+              href="../../public/vendor/spinkit.css"
+              rel="stylesheet">
+
+        <!-- Perfect Scrollbar -->
+        <link type="text/css"
+              href="../../public/vendor/perfect-scrollbar.css"
+              rel="stylesheet">
+
+        <!-- Material Design Icons -->
+        <link type="text/css"
+              href="../../public/css/material-icons.css"
+              rel="stylesheet">
+
+        <!-- Font Awesome Icons -->
+        <link type="text/css"
+              href="../../public/css/fontawesome.css"
+              rel="stylesheet">
+
+        <!-- Preloader -->
+        <link type="text/css"
+              href="../../public/css/preloader.css"
+              rel="stylesheet">
+
+        <!-- App CSS -->
+        <link type="text/css"
+              href="../../public/css/app.css"
+              rel="stylesheet">
+
+    </head>
+
+    <body class="layout">
+
+        <div class="mdk-drawer-layout js-mdk-drawer-layout" data-push data-responsive-width="992px">
+            <div class="mdk-drawer-layout__content page-content">
+                <div class="navbar navbar-expand navbar-dark navbar-dark-pickled-bluewood navbar-shadow" id="default-navbar" data-primary>
+
+                    <!-- Header -->
+                    <div id="HeaderDiv"></div>
+                    <!-- // END Header -->
+
+                    <!-- jQuery -->
+                    <script src="../../public/vendor/jquery.min.js"></script>
+                    <script src="Header.js"></script>
+
+                    <!-- <div class="page-section border-bottom-2">
+                        <div class="container-fluid page__container">
+
+                            <div class="page-separator">
+                                <div class="page-separator__text">Latest Courses</div>
+                            </div>
+
+                            <div class="row card-group-row" id="LatestCourses">
+                                
+                                <script>
+
+                                    let Latest = "Latest";
+                                    //Latest
+                                    $.ajax({
+                                        url: "../../api/GetCourses.php",
+                                        data: {
+                                            operation: Latest
+                                        },
+                                        type: "post",
+                                        dataType: "json",
+                                        success: function (response) {
+                                            //console.log(response);
+                                            // Iterate over each course using $.each
+                                            $.each(response, function (index, course) {
+                                                // Extract individual values into variables:
+                                                let courseID = course.CourseID;
+
+                                                let coursename = course.CourseName;
+                                                //console.log(coursename);
+
+                                                let portalname = course.PortalName;
+                                                //console.log(portalname);
+
+                                                let coursedescription = course.CourseDescription;
+                                                //console.log(coursedescription);
+
+                                                let CourseDivLatest = `<div class="col-sm-4 card-group-row__col">
+
+                                                            <div class="card js-overlay card-sm overlay--primary-dodger-blue stack stack--1 card-group-row__card"
+                                                                data-toggle="popover"
+                                                                data-trigger="click">
+
+                                                                <div class="card-body d-flex flex-column">
+                                                                    <div class="d-flex align-items-center">
+                                                                        <div class="flex">
+                                                                            <div class="d-flex align-items-center">
+                                                                                <div class="rounded mr-12pt z-0 o-hidden">
+                                                                                    <div class="overlay">
+                                                                                        <img src="../../public/images/paths/react_40x40@2x.png"
+                                                                                            width="40"
+                                                                                            height="40"
+                                                                                            alt="Angular"
+                                                                                            class="rounded">
+                                                                                        <span class="overlay__content overlay__content-transparent">
+                                                                                            <span class="overlay__action d-flex flex-column text-center lh-1">
+                                                                                                <small class="h6 small text-white mb-0"
+                                                                                                    style="font-weight: 500;">80%</small>
+                                                                                            </span>
+                                                                                        </span>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="flex">
+                                                                                    <div class="card-title">${coursename}</div>
+                                                                                    <p class="flex text-50 lh-1 mb-0"><small>${portalname}</small></p>
+                                                                                    <small hidden>${coursedescription}</small>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <a href="#" data-toggle="tooltip" data-title="info" 
+                                                                            data-placement="top" data-boundary="window" 
+                                                                            class="ml-4pt material-icons text-20 card-course__icon-favorite">more</a>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <div class="popoverContainer d-none">
+                                                                    <div class="media">
+                                                                        <div class="media-left mr-12pt">
+                                                                            <img src="../../public/images/paths/react_40x40@2x.png"
+                                                                                width="40"
+                                                                                height="40"
+                                                                                alt="Angular"
+                                                                                class="rounded">
+                                                                        </div>
+                                                                        <div class="media-body">
+                                                                            <div class="card-title">${coursename}</div>
+                                                                            <p class="text-50 d-flex lh-1 mb-0 small">${portalname}</p>
+                                                                        </div>
+                                                                    </div>
+                                        
+                                                                    <p class="mt-16pt text-70">${coursedescription}</p>
+                                        
+                                                                    <div class="my-32pt">
+                                                                        <div class="d-flex align-items-center mb-8pt justify-content-center">
+                                                                            <div class="d-flex align-items-center mr-8pt">
+                                                                                <span class="material-icons icon-16pt text-50 mr-4pt">access_time</span>
+                                                                                <p class="flex text-50 lh-1 mb-0"><small>50 minutes left</small></p>
+                                                                            </div>
+                                                                            <div class="d-flex align-items-center">
+                                                                                <span class="material-icons icon-16pt text-50 mr-4pt">play_circle_outline</span>
+                                                                                <p class="flex text-50 lh-1 mb-0"><small>12 lessons</small></p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="d-flex align-items-center justify-content-center">
+                                                                            <a href="Course.html"
+                                                                            class="btn btn-primary mr-8pt">Resume</a>
+                                                                            <a href="Course.html"
+                                                                            class="btn btn-outline-secondary ml-0">Start over</a>
+                                                                        </div>
+                                                                    </div>
+                                        
+                                                                    <div class="d-flex align-items-center">
+                                                                        <small class="text-50 mr-8pt">Your rating</small>
+                                                                        <div class="rating mr-8pt">
+                                                                            <span class="rating__item"><span class="material-icons text-primary">star</span></span>
+                                                                            <span class="rating__item"><span class="material-icons text-primary">star</span></span>
+                                                                            <span class="rating__item"><span class="material-icons text-primary">star</span></span>
+                                                                            <span class="rating__item"><span class="material-icons text-primary">star</span></span>
+                                                                            <span class="rating__item"><span class="material-icons text-primary">star_border</span></span>
+                                                                        </div>
+                                                                        <small class="text-50">4/5</small>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>`;
+
+                                                $("#LatestCourses").append(CourseDivLatest);
+                                            });
+                                            
+                                        },
+                                        error: function (E) {
+                                            alert(E.status + E.statusText)
+                                        }
+                                        
+                                    });
+
+                                </script>
+
+                            </div>
+
+                        </div> -->
+                        
+                </div>
+            </div>
+
+        </div>
+
+        
+
+        <!-- Bootstrap -->
+        <script src="../../public/vendor/popper.min.js"></script>
+        <script src="../../public/vendor/bootstrap.min.js"></script>
+
+        <!-- Perfect Scrollbar -->
+        <script src="../../public/vendor/perfect-scrollbar.min.js"></script>
+
+        <!-- DOM Factory -->
+        <script src="../../public/vendor/dom-factory.js"></script>
+
+        <!-- MDK -->
+        <script src="../../public/vendor/material-design-kit.js"></script>
+
+        <!-- App JS -->
+        <script src="../../public/js/app.js"></script>
+
+        <!-- Preloader -->
+        <script src="../../public/js/preloader.js"></script>
+
+    </body>
+
+</html>
