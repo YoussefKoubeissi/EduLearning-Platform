@@ -1,8 +1,8 @@
 <?php 
-     $serverName ="DESKTOP-4PNCJ7I\SQLEXPRESS"; 
+     $serverName ="Your server name"; 
      $password = ""; 
      $userId ="";
-     $database = "dbEduPlatform";
+     $database = "your database name";
      $connectionInfo = array( "Database"=>$database, "UID"=> $userId,  "PWD"=>$password,"CharacterSet" => "UTF-8"); 
      $conn = sqlsrv_connect( $serverName, $connectionInfo);
      if( ! $conn ) { 
